@@ -54,8 +54,7 @@ Kemudian anda diminta untuk mendesain arsitektur cloud yang sesuai dengan kebutu
 konfigurasi cloud terbaik seperti apa yang bisa dibuat?
 
 ## Rancangan Arsitektur
-![Arsitektur FP TKA drawio (3)](https://github.com/Aceeen/FP-TKA/assets/150018995/5217b025-b82c-48fa-8e15-ddb963fd3ac4)
-
+<img width="248" alt="arsitektur" src="https://github.com/Aceeen/FP-TKA/assets/150018995/10c420ac-40fd-4552-a3be-6118e53ac607">
 
 
 ## Membuat Virtual Machine Aplikasi
