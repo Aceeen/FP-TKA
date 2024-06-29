@@ -320,7 +320,8 @@ server {
 }
 ```
 Tampilan Interface
-![Screenshot 2024-06-21 183117](https://github.com/Aceeen/FP-TKA/assets/150018995/a7071eea-b3ba-4d39-b1f2-5baccc1f07dd)
+
+![image](https://github.com/Aceeen/FP-TKA/assets/151147728/541500ef-302d-4423-b1f3-0febc6cf5eac)
 
 ## Load Testing menggunakan Locust
 
