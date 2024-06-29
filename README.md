@@ -324,4 +324,5 @@ Tampilan Interface
 
 ## Load Testing menggunakan Locust
 
+![WhatsApp Image 2024-06-28 at 20 01 33_2f39c8d8](https://github.com/Aceeen/FP-TKA/assets/151147728/c89c6aae-c0fb-4293-b887-c6f00fab8158)
 
