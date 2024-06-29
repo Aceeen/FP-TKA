@@ -393,6 +393,9 @@ sudo systemctl status sentiment-analysis
 ```
 ![WhatsApp Image 2024-06-28 at 20 01 33_2f39c8d8](https://github.com/Aceeen/FP-TKA/assets/151147728/c89c6aae-c0fb-4293-b887-c6f00fab8158)
 
+# Video Demo Locust Testing
+https://drive.google.com/file/d/1ZT6RfNa7W5YEgh0X08Ykn1LtDDHr_A3F/view?usp=sharing
+
 ## KESIMPULAN DAN SARAN
 Masih perlu dilakukan konfigurasi kembali untuk optimalisasi sistem dan menurunkan waktu response time.
 
