@@ -319,8 +319,8 @@ server {
     }
 }
 ```
-## REVISI
-# Tampilan Interface
+# REVISI
+## Tampilan Interface
 
 ![image](https://github.com/Aceeen/FP-TKA/assets/151147728/541500ef-302d-4423-b1f3-0febc6cf5eac)
 ```
