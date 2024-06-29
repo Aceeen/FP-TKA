@@ -319,11 +319,80 @@ server {
     }
 }
 ```
-Tampilan Interface
+## REVISI
+# Tampilan Interface
 
 ![image](https://github.com/Aceeen/FP-TKA/assets/151147728/541500ef-302d-4423-b1f3-0febc6cf5eac)
+```
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from textblob import TextBlob
+from pymongo import MongoClient
+
+app = Flask(_name_)
+CORS(app)
+
+# Database setup
+client = MongoClient('mongodb://localhost:27017/')
+db = client.sentiment_analysis
+collection = db.history
+
+@app.route('/analyze', methods=['POST'])
+def analyze_sentiment():
+    data = request.get_json()
+    text = data.get('text', '')
+    analysis = TextBlob(text)
+    sentiment = analysis.sentiment.polarity
+
+    # Save to database
+    collection.insert_one({'text': text, 'sentiment': sentiment})
+
+    return jsonify({'sentiment': sentiment})
+
+@app.route('/history', methods=['GET'])
+def get_history():
+    history = list(collection.find({},{'_id':0}).sort("_id",-1))
+    return jsonify(history)
+
+if _name_ == '_main_':
+    app.run(host='0.0.0.0', port=5000)
+```
 
 ## Load Testing menggunakan Locust
 
+Pertama pastikan locust sudah terinstall menggunakan
+```
+pip install locust
+```
+Lalu tambahkan Locustfile berikut
+```
+from locust import HttpUser, task, between
+
+class SentimentAnalysisUser(HttpUser):
+    wait_time = between(1, 5)  # Wait time between task executions
+
+    @task(1)
+    def analyze_sentiment(self):
+        self.client.post("/analyze", json={"text": "This is a test text for sentiment analysis."})
+
+    @task(2)
+    def get_history(self):
+        self.client.get("/history")
+
+    def on_start(self):
+        """Called when a simulated user starts running. Useful for setup tasks."""
+        self.client.post("/analyze", json={"text": "Initial setup text."})
+
+# To run this Locust file, save it as locustfile.py and run the following command in your terminal:
+# locust -f locustfile.py --host http://139.59.228.185:5000
+
+```
+Lalu dapatkan analisisnya
+```
+sudo systemctl status sentiment-analysis
+```
 ![WhatsApp Image 2024-06-28 at 20 01 33_2f39c8d8](https://github.com/Aceeen/FP-TKA/assets/151147728/c89c6aae-c0fb-4293-b887-c6f00fab8158)
+
+## KESIMPULAN DAN SARAN
+Masih perlu dilakukan konfigurasi kembali untuk optimalisasi sistem dan menurunkan waktu response time.
 
